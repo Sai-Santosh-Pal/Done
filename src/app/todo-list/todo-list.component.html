@@ -1,10 +1,13 @@
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
- <!--  <div class="input-group">
+  <!--  <div class="input-group">
     <input type="text" [(ngModel)]="newTask" placeholder="Enter a task" class="task-input">
     <button (click)="addTask()" class="add-btn">Add Task</button>
   </div>
@@ -53,50 +56,99 @@
 </ul>
   </div>
 </div> -->
-<div class="progress-bar">
-  <div class="progress" [style.width]="getProgressPercentage() + '%'">
-    <span class="progress-percentage">{{ getProgressPercentage() }}%</span>
+
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <div class="progress-bar">
+    <div class="progress" [style.width]="getProgressPercentage() + '%'">
+      <span class="progress-percentage">{{ getProgressPercentage() }}%</span>
+    </div>
   </div>
-</div>
+  <div class="input-group">
+    <input
+      type="text"
+      [(ngModel)]="newTask"
+      placeholder="Enter a task"
+      class="task-input"
+    />
+    <button (click)="addTask()" class="add-btn">Add Task</button>
+  </div>
 
-<div class="input-group">
-  <input type="text" [(ngModel)]="newTask" placeholder="Enter a task" class="task-input">
-  <button (click)="addTask()" class="add-btn">Add Task</button>
-</div>
+  <h2>Tasks</h2>
+  <ul class="task-list">
+    <ng-container *ngIf="tasks.length > 0">
+      <li
+        class="task-item"
+        *ngFor="let task of tasks; let i = index"
+        [@deleteAnimation]
+        (click)="completeTask(i)"
+      >
+        <span class="task-text">{{ task.title }}</span>
+        <button class="remove-btn" (click)="removeTask(i)">
+          <img
+            src="../../assets/delete-icon.png"
+            alt="Remove"
+            width="30"
+            height="30"
+          />
+        </button>
+        <button class="complete-btn" (click)="completeTask(i)">
+          <img
+            src="../../assets/done-icon.png"
+            alt="Complete"
+            width="30"
+            height="30"
+          />
+        </button>
+      </li>
+    </ng-container>
+    <li class="task-item" *ngIf="newTask" [@addAnimation]>
+      <span class="task-text">{{ newTask }}</span>
+    </li>
+    <li class="task-item no-tasks" *ngIf="!newTask && tasks.length === 0">
+      <div class="no-tasks">
+        <div class="no-tasks-content">
+          <span class="emoji">🎉</span>
+          <span class="no-tasks-text">No tasks left to do!</span>
+          <span class="add-task-text"
+            >Add a new task using the input above.</span
+          >
+        </div>
+      </div>
+    </li>
+  </ul>
 
-<h2>Tasks</h2>
-<ul class="task-list">
-  <li class="task-item" *ngFor="let task of tasks; let i = index">
-    <span class="task-text">{{ task.title }}</span>
-    <button class="remove-btn" (click)="removeTask(i, false)"><img src="../../assets/delete-icon.png" alt="Remove" width="30" height="30">
-</button>
-    <button class="complete-btn" (click)="completeTask(i)"><img src="../../assets/done-icon.png" alt="Complete" width="30" height="30"></button>
-  </li>
-</ul>
-
-<h2>Done Tasks</h2>
-<ul class="task-list">
-  <li class="task-item" *ngFor="let doneTask of doneTasks; let i = index">
-    <span class="task-text">{{ doneTask.title }}</span>
-    <button class="remove-btn" (click)="removeTask(i, true)"><img src="../../assets/delete-icon.png" alt="Remove" width="30" height="30"></button>
-  </li>
-</ul>
-
-<!-- <div class="input-group">
-  <input type="text" [(ngModel)]="newTask" placeholder="Enter a task" class="task-input">
-  <button (click)="addTask()" class="add-btn">Add Task</button>
-</div>
-
-<h2>Tasks</h2>
-<ul class="task-list">
-  <li class="task-item" *ngFor="let task of tasks; let i = index">
-    <span class="task-text">{{ task.title }}</span>
-    <button class="remove-btn" (click)="removeTask(i, false)">Remove</button>
-    <button class="complete-btn" (click)="completeTask(i)">Complete</button>
-  </li>
-</ul>
-
-<h2>Done Tasks</h2>
-
-
-</body> -->
+  <h2>Done Tasks</h2>
+  <ul class="task-list">
+    <ng-container *ngIf="doneTasks.length > 0">
+      <li class="task-item" *ngFor="let doneTask of doneTasks; let i = index">
+        <span class="task-text">{{ doneTask.title }}</span>
+        <button class="remove-btn" (click)="removeTask(i, true)">
+          <img
+            src="../../assets/delete-icon.png"
+            alt="Remove"
+            width="30"
+            height="30"
+          />
+        </button>
+      </li>
+    </ng-container>
+    <li class="task-item no-tasks" *ngIf="doneTasks.length === 0">
+      <div class="no-tasks">
+        <div class="no-tasks-content">
+          <span class="emoji">😉</span>
+          <span class="no-tasks-text">No tasks completed yet.</span>
+          <span class="add-task-text"
+            >Keep up the good work!</span
+          >
+        </div>
+      </div>
+    </li>
+  </ul>
+</body>

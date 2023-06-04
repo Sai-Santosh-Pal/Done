@@ -173,3 +173,98 @@ li.task-item.ng-leave {
   color: #ffffff;
   font-weight: bold;
 }
+
+.no-tasks {
+  text-align: center;
+  padding: 20px;
+}
+
+.no-tasks-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emoji {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.no-tasks-text {
+  font-size: 16px;
+}
+.no-tasks {
+  text-align: center;
+  padding: 20px;
+}
+
+.no-tasks-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.emoji {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.no-tasks-text {
+  font-size: 16px;
+  text-align: center;
+}
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.no-tasks {
+  text-align: center;
+  padding: 20px;
+}
+
+.no-tasks-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.emoji {
+  font-size: 48px;
+  margin-bottom: 5px;
+}
+
+.no-tasks-text {
+  font-size: 16px;
+  text-align: center;
+}
+.no-tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.no-tasks-content {
+  text-align: center;
+}
+
+.emoji {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.no-tasks-text {
+  font-size: 24px;
+}
+
+.add-task-text {
+  font-size: 16px;
+}
