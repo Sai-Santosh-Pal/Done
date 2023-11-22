@@ -1,5 +1,5 @@
 # Done
-A Sophisticated To Do App Made IN Angluar
+A Sophisticated To Do App Made In Angluar
 <hr>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
